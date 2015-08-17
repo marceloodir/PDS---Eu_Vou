@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
-  resources :comments
-  post 'euvou/confirmation', param: :id
+
+  post 'euvou/:id/confirmation' => 'euvou#confirmation', as: :confirmation
 
   devise_for :users
   resources :events
   resources :categories
-
+  resources :comments
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

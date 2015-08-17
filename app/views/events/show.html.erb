@@ -30,7 +30,7 @@
               <a href="#" class="list-group-item">
                   <i class="fa fa-envelope fa-fw"></i> Contato
               </a>
-              <%=form_tag(euvou_confirmation_path(id: @event.id), method: "post", remote: true) do %>
+              <%=form_tag(confirmation_path(@event), method: "post", remote: true) do %>
                 <button class="btn btn-primary bnt-lg btn-block" type="submit">
                   <i class="fa fa-check-square-o"></i> Eu vou! <span class="badge" id="contador-<%=@event.id %>"><%=@event.eu_vou_rating%></span>
                   <div id="resposta-<%=@event.id %>" class="resposta"></div>
@@ -74,7 +74,7 @@
       <!-- Posted Comments -->
       <!-- Comment -->
       <div id="comentarios">
-        <%= render 'comentario', event: @event%>
+        <%= render(@event.comments.order(data: :desc))%>
       </div>
     </div>
   </div><!-- /.row -->

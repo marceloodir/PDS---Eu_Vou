@@ -1,6 +1,7 @@
 
-$("#comentarios").hide();
-$("#comentarios").html("<%= escape_javascript(render('events/comentario', event: @comment.event)) %>");
-$("#comentarios").fadeIn(1000);
+
+$('#comentarios').prepend("<%= escape_javascript render(@comment)%>");
+$('#<%= @comment.id %>').hide();
+$('#<%= @comment.id %>').fadeIn(1000);
 
 $("#comment_conteudo").val("");

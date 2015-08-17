@@ -1,3 +1,2 @@
-$("#comentarios").hide();
-$("#comentarios").html("<%= escape_javascript(render('events/comentario', event: @comment.event)) %>");
-$("#comentarios").fadeIn(1000);
+
+$('#<%= @comment.id %>').fadeOut(1000).terminate().remove();
