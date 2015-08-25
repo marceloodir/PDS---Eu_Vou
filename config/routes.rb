@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   post 'euvou/:id/confirmation' => 'euvou#confirmation', as: :confirmation
+  post 'events/procura' => 'events#procura', as: :procurar
 
   devise_for :users
   resources :events

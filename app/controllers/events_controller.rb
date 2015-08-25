@@ -9,6 +9,12 @@ class EventsController < ApplicationController
     @events = Event.ativos.order(eu_vou_rating: :desc)
   end
 
+  def procura
+    search = params[:keyword]
+    @events = Event.ativos.where("titulo LIKE '%#{search}%' OR descricao like '%#{search}%'")
+    respond_to :js
+  end
+
   # GET /events/1
   # GET /events/1.json
   def show
